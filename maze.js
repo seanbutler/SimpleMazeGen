@@ -7,9 +7,20 @@ class BlockMaze {
     }
 
     initialise(width, height) {
-        this.width = width;     // must always be odd
+        this.width = width
         this.height = height
+
         this.size = this.width*this.height
+
+        if ( this.width/2 == this.width)
+        {
+            this.width+=1
+        }
+
+        if ( this.height/2 == this.height)
+        {
+            this.height+=1
+        }
 
         for (var n=0; n<this.size; n++)
         {
@@ -86,7 +97,9 @@ class BlockMaze {
 
     generateRandomDirections(directions) {
         var directions = new Array()
-        directions = ['N', 'E', 'S', 'W']
+        directions = [ 'N', 'E', 'S', 'W']
+        // directions = [ 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'S', 'E', 'S', 'W']  
+        // directions = [ 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'W', 'W', 'E', 'S', 'W']
         return UTILS.shuffle(directions)
     }
 

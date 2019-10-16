@@ -81,16 +81,14 @@ class App {
         this.widgetFactory = new WidgetFactory()
         this.maze = new BlockMaze()
 
-        this.size = 16
+        this.size = 32
         this.space = 2
-
         this.width = 21
         this.height = 21
 
         let widthWidget = this.widgetFactory.getRangeWidget('width', 'width', 5, this.width, 505, 2)
         widthWidget.onchange = (evt) => {
             this.width = evt.target.value
-
             this.maze.initialise(this.width, this.height)
             this.maze.generate()    
             this.drawer.draw(this.maze, this.size, this.space)
@@ -100,7 +98,6 @@ class App {
         let heightWidget = this.widgetFactory.getRangeWidget('height', 'height', 5, this.height, 505, 2)
         heightWidget.onchange = (evt) => {
             this.height = evt.target.value
-
             this.maze.initialise(this.width, this.height)
             this.maze.generate()    
             this.drawer.draw(this.maze, this.size, this.space)
@@ -129,16 +126,13 @@ class App {
         };
         document.body.appendChild(generateBtnWidget)
 
-
-
         this.canvas = this.widgetFactory.getCanvas(window.innerWidth, window.innerHeight*0.9)
         document.body.appendChild(this.canvas)
-
 
         this.maze.initialise(this.width, this.height)
         this.maze.generate()
 
         this.drawer = new MazeDrawer(this.canvas)
-        this.drawer.draw(this.maze, 32)        
+        this.drawer.draw(this.maze, this.size, this.space)        
     }
 }
