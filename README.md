@@ -6,7 +6,7 @@ There is a working version here
 https://seanbutler.github.io/SimpleMazeGen/
 
 
-
+![screenshot](./screenshot.png)
 
 
 
